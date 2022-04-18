@@ -18,6 +18,7 @@ def prnt(g):
             print(f' {g[y][x]} ', end='')
         print('|')
     print('|'+'-'*29+'|')
+
 def fill(g):
     posibilities = []
     for y in range(9):
@@ -60,5 +61,3 @@ while True:
         break
     except:
         pass
-
-#FUCK SUDOKU OR SODUKO WHATEVER IT IS.
