@@ -5,6 +5,7 @@ Creates Solved Sudoku Puzzles
 Just running the .py file will generate a solved sudoku puzzle and output it in the command prompt.
 
 ## Sample Output:
+```
 |-----------------------------|
 | 2  1  5 | 3  8  4 | 7  9  6 |
 | 3  8  7 | 9  1  6 | 5  2  4 |
@@ -18,3 +19,4 @@ Just running the .py file will generate a solved sudoku puzzle and output it in 
 | 9  5  4 | 8  7  3 | 2  6  1 |
 | 6  2  3 | 5  9  1 | 8  4  7 |
 |-----------------------------|
+```
