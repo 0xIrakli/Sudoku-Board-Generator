@@ -4,7 +4,7 @@ Creates Solved Sudoku Puzzles
 ## Usage
 Just running the .py file will generate a solved sudoku puzzle and output it in the command prompt.
 
-## Sample Output:
+## Sample Output
 ```
 |-----------------------------|
 | 2  1  5 | 3  8  4 | 7  9  6 |
