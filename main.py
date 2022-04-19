@@ -19,17 +19,25 @@ def prnt(g):
         print('|')
     print('+'+'-'*29+'+')
 
-def fill(g):
+def blank_posibilities():
     posibilities = []
     for y in range(9):
         posibilities.append([])
         for x in range(9):
             posibilities[y].append(list(range(1, 10)))
+    return posibilities
+   
+def blank_quadposibilities():
     quadpos = []
     for y in range(3):
         quadpos.append([])
         for x in range(3):
             quadpos[y].append(list(range(1, 10)))
+    return quadpos
+    
+def fill(g):
+    posibilities = blank_posibilities()
+    quadpos = blank_quadposibilities()
     
     for y in range(9):
         for x in range(9):
