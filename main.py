@@ -11,13 +11,13 @@ def fill0s(g):
 def prnt(g):
     for y in range(len(g)):
         if y%3 == 0:
-            print('|'+'-'*29+'|')
+            print('+'+'-'*29+'+')
         for x in range(len(g[y])):
             if x%3 == 0:
                 print('|', end='')
             print(f' {g[y][x]} ', end='')
         print('|')
-    print('|'+'-'*29+'|')
+    print('+'+'-'*29+'+')
 
 def fill(g):
     posibilities = []
