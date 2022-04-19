@@ -36,9 +36,12 @@ def fill(g):
             qX = x//3
             qY = y//3
             choice = rand.choice(list(set(posibilities[y][x]) & set(quadpos[qY][qX])))
+            g[y][x] = choice
+            
+            #remove number from this row, this column and this *quadrant*. 
             if choice in quadpos[qY][qX]:
                 quadpos[qY][qX].remove(choice)
-            g[y][x] = choice
+            
             for row in posibilities:
                 if choice in row[x]:
                     row[x].remove(choice)
