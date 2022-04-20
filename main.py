@@ -20,12 +20,12 @@ def prnt(g):
     print('+'+'-'*29+'+')
 
 def blank_posibilities():
-    posibilities = []
+    row_posibilities = []
+    col_posibilities = []
     for y in range(9):
-        posibilities.append([])
-        for x in range(9):
-            posibilities[y].append(list(range(1, 10)))
-    return posibilities
+        row_posibilities.append(list(range(1, 10)))
+        col_posibilities.append(list(range(1, 10)))
+    return row_posibilities, col_posibilities
    
 def blank_quadposibilities():
     quadpos = []
@@ -36,39 +36,51 @@ def blank_quadposibilities():
     return quadpos
     
 def fill(g):
-    posibilities = blank_posibilities()
+    row_posibilities, col_posibilities = blank_posibilities()
     quadpos = blank_quadposibilities()
     
     for y in range(9):
         for x in range(9):
             qX = x//3
             qY = y//3
-            choice = rand.choice(list(set(posibilities[y][x]) & set(quadpos[qY][qX])))
+            try:
+                choice = rand.choice(list(set(row_posibilities[y]) & set(col_posibilities[x]) & set(quadpos[qY][qX])))
+            except:
+                return False
+
             g[y][x] = choice
             
             #remove number from this row-s, this column-s and this *quadrant*-s choices. 
             if choice in quadpos[qY][qX]:
                 quadpos[qY][qX].remove(choice)
             
-            for row in posibilities:
-                if choice in row[x]:
-                    row[x].remove(choice)
+            if choice in row_posibilities[y]:
+                row_posibilities[y].remove(choice)
                     
-            for col in posibilities[y]:
-                if choice in col:
-                    col.remove(choice)
+            if choice in col_posibilities[x]:
+                col_posibilities[x].remove(choice)
+    return row_posibilities
+
+def solve(board):
+    for y, row in enumerate(board):
+        for x, col in enumerate(board[y]):
+            if col == 0:
+                col = []
+                for c in range(9): col.append(board[c][x])
+                rowposs = row.copy()
+                colposs = col.copy()
+                
+
 fill0s(grid)
 while True:
-    try:
-        fill(grid)
+    pos = fill(grid)
+    if pos != False:
         prnt(grid)
         sums = []
         for y in range(len(grid)):
             sums.append(0)
             for x in range(len(grid[y])):
                 sums[y] += grid[x][y]
-        #print(sums)
-        #print(list(map(sum, grid)))
+        print(sums)
+        print(list(map(sum, grid)))
         break
-    except:
-        pass
