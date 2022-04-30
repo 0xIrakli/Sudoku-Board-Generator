@@ -76,11 +76,12 @@ while True:
     pos = fill(grid)
     if pos != False:
         prnt(grid)
-        sums = []
-        for y in range(len(grid)):
-            sums.append(0)
-            for x in range(len(grid[y])):
-                sums[y] += grid[x][y]
-        print(sums)
-        print(list(map(sum, grid)))
+        #debug stuff:
+        #sums = []
+        #for y in range(len(grid)):
+        #    sums.append(0)
+        #    for x in range(len(grid[y])):
+        #        sums[y] += grid[x][y]
+        #print(sums)
+        #print(list(map(sum, grid)))
         break
